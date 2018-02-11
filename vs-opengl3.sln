@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vs-opengl3", "vs-opengl3\vs
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gl3FwEw", "gl3FwEw\gl3FwEw.vcxproj", "{44024379-6BA3-402C-9FBB-537481B872AB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gl3FwGlad", "gl3FwGlad\gl3FwGlad.vcxproj", "{275B6CFE-F978-414A-86BA-E8BA0EC7951A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{44024379-6BA3-402C-9FBB-537481B872AB}.Release|x64.Build.0 = Release|x64
 		{44024379-6BA3-402C-9FBB-537481B872AB}.Release|x86.ActiveCfg = Release|Win32
 		{44024379-6BA3-402C-9FBB-537481B872AB}.Release|x86.Build.0 = Release|Win32
+		{275B6CFE-F978-414A-86BA-E8BA0EC7951A}.Debug|x64.ActiveCfg = Debug|x64
+		{275B6CFE-F978-414A-86BA-E8BA0EC7951A}.Debug|x64.Build.0 = Debug|x64
+		{275B6CFE-F978-414A-86BA-E8BA0EC7951A}.Debug|x86.ActiveCfg = Debug|Win32
+		{275B6CFE-F978-414A-86BA-E8BA0EC7951A}.Debug|x86.Build.0 = Debug|Win32
+		{275B6CFE-F978-414A-86BA-E8BA0EC7951A}.Release|x64.ActiveCfg = Release|x64
+		{275B6CFE-F978-414A-86BA-E8BA0EC7951A}.Release|x64.Build.0 = Release|x64
+		{275B6CFE-F978-414A-86BA-E8BA0EC7951A}.Release|x86.ActiveCfg = Release|Win32
+		{275B6CFE-F978-414A-86BA-E8BA0EC7951A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
