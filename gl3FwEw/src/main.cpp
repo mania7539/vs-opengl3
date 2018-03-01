@@ -5,6 +5,9 @@
 #include <string>
 #include <sstream>
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
 #include "Renderer.h"
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
@@ -88,7 +91,6 @@ static int createShader(const std::string& vertexShader, const std::string& frag
 	return program;
 }
 
-
 int main(void)
 {
 	GLFWwindow* window;
@@ -125,10 +127,10 @@ int main(void)
 	std::cout << "GL_VERSION: " << glGetString(GL_VERSION) << std::endl;
 	float positions[] = {
 		-0.5f, -0.5f,	// 0
-		 0.5f, -0.5f,	// 1
-		 0.5f,  0.5f,	// 2
+		0.5f, -0.5f,	// 1
+		0.5f,  0.5f,	// 2
 		-0.5f,  0.5f,	// 3
-	}; 
+	};
 
 	unsigned int indices[] = {
 		0, 1, 2,
@@ -136,7 +138,7 @@ int main(void)
 	}; // it has to be unsigned int than signed
 
 
-	// below code: used to fix the OpenGL Core profile with a actual Vertex Array Object
+	   // below code: used to fix the OpenGL Core profile with a actual Vertex Array Object
 	unsigned int vao;
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
@@ -189,7 +191,7 @@ int main(void)
 			glfwPollEvents();
 		}
 
-		
+
 	}
 	// above code ends: add a scope
 

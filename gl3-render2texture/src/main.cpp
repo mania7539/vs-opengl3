@@ -131,10 +131,10 @@ int main(void)
 	float positions[] = {
 		// positions, texture coords
 		-0.5f, -0.5f, 0.0f, 0.0f,	// 0
-		 0.5f, -0.5f, 0.0f, 1.0f,	// 1
-		 0.5f,  0.5f, 1.0f, 1.0f,	// 2
+		0.5f, -0.5f, 0.0f, 1.0f,	// 1
+		0.5f,  0.5f, 1.0f, 1.0f,	// 2
 		-0.5f,  0.5f, 0.0f, 1.0f	// 3
-	}; 
+	};
 
 	unsigned int indices[] = {
 		0, 1, 2,
@@ -142,7 +142,7 @@ int main(void)
 	}; // it has to be unsigned int than signed
 
 
-	// below code: used to fix the OpenGL Core profile with a actual Vertex Array Object
+	   // below code: used to fix the OpenGL Core profile with a actual Vertex Array Object
 	unsigned int vao;
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
@@ -237,7 +237,7 @@ int main(void)
 			glfwPollEvents();
 		}
 
-		
+
 	}
 	// above code ends: add a scope
 

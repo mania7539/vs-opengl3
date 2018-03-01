@@ -23,6 +23,7 @@ uniform sampler2D u_Color;
 
 void main()
 {
-	if (u_Color.r < 1.0) u_Color.r = 1.0;
-	color = texture(u_Color, vTexCoord);
+	gl_FragColor = texture2D(u_Color, vTexCoord);
+	if (gl_FragColor.r < 1.0) gl_FragColor.r = 1.0;
+	
 };

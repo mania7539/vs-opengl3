@@ -9,7 +9,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gl3FwEw", "gl3FwEw\gl3FwEw.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gl3FwGlad", "gl3FwGlad\gl3FwGlad.vcxproj", "{275B6CFE-F978-414A-86BA-E8BA0EC7951A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gl-render2texture", "gl3-render2texture\gl-render2texture.vcxproj", "{F2F7032B-3CF1-4AD2-802C-096098D5FCDE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gl3-render2texture", "gl3-render2texture\gl3-render2texture.vcxproj", "{38F20277-7176-4F5F-9CA6-905FC03E095C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,14 +43,14 @@ Global
 		{275B6CFE-F978-414A-86BA-E8BA0EC7951A}.Release|x64.Build.0 = Release|x64
 		{275B6CFE-F978-414A-86BA-E8BA0EC7951A}.Release|x86.ActiveCfg = Release|Win32
 		{275B6CFE-F978-414A-86BA-E8BA0EC7951A}.Release|x86.Build.0 = Release|Win32
-		{F2F7032B-3CF1-4AD2-802C-096098D5FCDE}.Debug|x64.ActiveCfg = Debug|x64
-		{F2F7032B-3CF1-4AD2-802C-096098D5FCDE}.Debug|x64.Build.0 = Debug|x64
-		{F2F7032B-3CF1-4AD2-802C-096098D5FCDE}.Debug|x86.ActiveCfg = Debug|Win32
-		{F2F7032B-3CF1-4AD2-802C-096098D5FCDE}.Debug|x86.Build.0 = Debug|Win32
-		{F2F7032B-3CF1-4AD2-802C-096098D5FCDE}.Release|x64.ActiveCfg = Release|x64
-		{F2F7032B-3CF1-4AD2-802C-096098D5FCDE}.Release|x64.Build.0 = Release|x64
-		{F2F7032B-3CF1-4AD2-802C-096098D5FCDE}.Release|x86.ActiveCfg = Release|Win32
-		{F2F7032B-3CF1-4AD2-802C-096098D5FCDE}.Release|x86.Build.0 = Release|Win32
+		{38F20277-7176-4F5F-9CA6-905FC03E095C}.Debug|x64.ActiveCfg = Debug|x64
+		{38F20277-7176-4F5F-9CA6-905FC03E095C}.Debug|x64.Build.0 = Debug|x64
+		{38F20277-7176-4F5F-9CA6-905FC03E095C}.Debug|x86.ActiveCfg = Debug|Win32
+		{38F20277-7176-4F5F-9CA6-905FC03E095C}.Debug|x86.Build.0 = Debug|Win32
+		{38F20277-7176-4F5F-9CA6-905FC03E095C}.Release|x64.ActiveCfg = Release|x64
+		{38F20277-7176-4F5F-9CA6-905FC03E095C}.Release|x64.Build.0 = Release|x64
+		{38F20277-7176-4F5F-9CA6-905FC03E095C}.Release|x86.ActiveCfg = Release|Win32
+		{38F20277-7176-4F5F-9CA6-905FC03E095C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
