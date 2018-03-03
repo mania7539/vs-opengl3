@@ -128,12 +128,22 @@ int main(void)
 	};
 
 	std::cout << "GL_VERSION: " << glGetString(GL_VERSION) << std::endl;
-	float positions[] = {
+
+	// this vertices will get texture 1/2 smaller each time it passes a shader
+	float positions2[] = {
 		// positions, texture coords
 		-0.5f, -0.5f, 0.0f, 0.0f,	// 0
 		 0.5f, -0.5f, 1.0f, 0.0f,	// 1
 		 0.5f,  0.5f, 1.0f, 1.0f,	// 2
 		-0.5f,  0.5f, 0.0f, 1.0f	// 3
+	};
+
+	float positions[] = {
+		// positions, texture coords
+		-1.0f, -1.0f, 0.0f, 0.0f,	// 0
+		1.0f, -1.0f, 1.0f, 0.0f,	// 1
+		1.0f,  1.0f, 1.0f, 1.0f,	// 2
+		-1.0f,  1.0f, 0.0f, 1.0f	// 3
 	};
 
 	unsigned int indices[] = {
@@ -204,9 +214,9 @@ int main(void)
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureColorbuffer, 0);
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, SCR_WIDTH, SCR_HEIGHT, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
-
+		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureColorbuffer, 0);
+		
 
 		while (!glfwWindowShouldClose(window))
 		{
