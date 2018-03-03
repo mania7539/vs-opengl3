@@ -131,8 +131,8 @@ int main(void)
 	float positions[] = {
 		// positions, texture coords
 		-0.5f, -0.5f, 0.0f, 0.0f,	// 0
-		0.5f, -0.5f, 0.0f, 1.0f,	// 1
-		0.5f,  0.5f, 1.0f, 1.0f,	// 2
+		 0.5f, -0.5f, 1.0f, 0.0f,	// 1
+		 0.5f,  0.5f, 1.0f, 1.0f,	// 2
 		-0.5f,  0.5f, 0.0f, 1.0f	// 3
 	};
 
@@ -163,10 +163,17 @@ int main(void)
 		int width, height, channels;
 		unsigned int textureSource;
 		glGenTextures(1, &textureSource);
+		glActiveTexture(GL_TEXTURE1);
+		glBindTexture(GL_TEXTURE_2D, textureSource);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		stbi_set_flip_vertically_on_load(true);
 		image = stbi_load("res/images/awesomeface.png", &width, &height, &channels, 0);
 		if (image)
 		{
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
 			glGenerateMipmap(GL_TEXTURE_2D);
 		}
 		else
@@ -174,8 +181,6 @@ int main(void)
 			std::cout << "Failed to load texture" << std::endl;
 		}
 		stbi_image_free(image);
-		glActiveTexture(GL_TEXTURE1);
-		glBindTexture(GL_TEXTURE_2D, textureSource);
 
 		Shader shader("res/shaders/basic.shader");
 		shader.bind();
@@ -195,10 +200,12 @@ int main(void)
 		glGenTextures(1, &textureColorbuffer);
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, SCR_WIDTH, SCR_HEIGHT, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureColorbuffer, 0);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, SCR_WIDTH, SCR_HEIGHT, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
 
 
 		while (!glfwWindowShouldClose(window))
@@ -206,29 +213,27 @@ int main(void)
 			/* Render here */
 			glClear(GL_COLOR_BUFFER_BIT);
 
-			// TODO: modern gl codes begin:
-			glActiveTexture(GL_TEXTURE1);
-			shader.bind();
-			shader.setUniform1i("u_Color", 1);
-
 			glBindVertexArray(vao);
 			vertexArray.bind();
 			indexBuffer.bind();
 
+			// TODO: modern gl codes begin:
+			glActiveTexture(GL_TEXTURE1);
+			glBindTexture(GL_TEXTURE_2D, textureSource);
+			shader.bind();
+			shader.setUniform1i("u_Color", 1);
+
+			//glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT);
 			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
 			shader2nd.bind();
 			shader2nd.setUniform1i("u_Color", 0);
 
-			glBindVertexArray(vao);
-			vertexArray.bind();
-			indexBuffer.bind();
-
+			glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT);
 			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
-
-
 
 			/* Swap front and back buffers */
 			glfwSwapBuffers(window);
