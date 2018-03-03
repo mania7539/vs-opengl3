@@ -141,8 +141,8 @@ int main(void)
 	float positions[] = {
 		// positions, texture coords
 		-1.0f, -1.0f, 0.0f, 0.0f,	// 0
-		1.0f, -1.0f, 1.0f, 0.0f,	// 1
-		1.0f,  1.0f, 1.0f, 1.0f,	// 2
+		 1.0f, -1.0f, 1.0f, 0.0f,	// 1
+		 1.0f,  1.0f, 1.0f, 1.0f,	// 2
 		-1.0f,  1.0f, 0.0f, 1.0f	// 3
 	};
 
@@ -152,7 +152,7 @@ int main(void)
 	}; // it has to be unsigned int than signed
 
 
-	   // below code: used to fix the OpenGL Core profile with a actual Vertex Array Object
+	// below code: used to fix the OpenGL Core profile with a actual Vertex Array Object
 	unsigned int vao;
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
@@ -242,7 +242,7 @@ int main(void)
 			shader2nd.bind();
 			shader2nd.setUniform1i("u_Color", 0);
 
-			glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT);
+			//glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT);
 			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
 			/* Swap front and back buffers */
